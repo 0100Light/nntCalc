@@ -7,6 +7,7 @@
 #include "cohendwidget.hpp"
 #include "ui_CohendWidget.h"
 #include "CalculateService.hpp"
+#include <QKeyEvent>
 
 
 CohendWidget::CohendWidget(QWidget *parent) :
@@ -99,4 +100,11 @@ void CohendWidget::displayError() {
 
     setSelectedMethod("NA");
     setResultNnt(0);
+}
+
+void CohendWidget::keyPressEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
+        calc();
+    }
+    QWidget::keyPressEvent(event);
 }

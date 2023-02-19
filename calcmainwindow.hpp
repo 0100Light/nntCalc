@@ -6,6 +6,7 @@
 #define NNTCALC_CALCMAINWINDOW_HPP
 
 #include <QMainWindow>
+#include "cohendwidget.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CalcMainWindow; }
@@ -21,7 +22,7 @@ public:
 
 private:
     Ui::CalcMainWindow *ui;
-    QWidget* cohendWidget;
+    CohendWidget* cohendWidget;
 };
 
 
