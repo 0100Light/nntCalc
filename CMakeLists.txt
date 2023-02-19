@@ -18,11 +18,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_library(nntLib
-        calcmainwindow.cpp calcmainwindow.hpp calcmainwindow.ui
         CalculateService.cpp CalculateService.hpp
-        cohendwidget.cpp cohendwidget.hpp cohendwidget.ui
-        aboutdialog.cpp aboutdialog.h aboutdialog.ui
-        resource.qrc
         )
 
 target_link_libraries(nntLib
@@ -33,6 +29,10 @@ target_link_libraries(nntLib
 
 add_executable(NNTCalc
         main.cpp
+        resource.qrc
+        calcmainwindow.cpp calcmainwindow.hpp calcmainwindow.ui
+        cohendwidget.cpp cohendwidget.hpp cohendwidget.ui
+        aboutdialog.cpp aboutdialog.h aboutdialog.ui
         )
 target_link_libraries(NNTCalc
         nntLib
