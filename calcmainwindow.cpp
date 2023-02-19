@@ -6,11 +6,17 @@
 
 #include "calcmainwindow.hpp"
 #include "ui_CalcMainWindow.h"
+#include "cohendwidget.hpp"
+
 
 
 CalcMainWindow::CalcMainWindow(QWidget *parent) :
-        QMainWindow(parent), ui(new Ui::CalcMainWindow) {
+        QMainWindow(parent), ui(new Ui::CalcMainWindow),
+        cohendWidget(new CohendWidget(this))
+        {
     ui->setupUi(this);
+
+    setCentralWidget(cohendWidget);
 }
 
 CalcMainWindow::~CalcMainWindow() {

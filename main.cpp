@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
-    auto mainWindow = std::make_unique<CalcMainWindow>();
+    auto mainWindow = new CalcMainWindow();
     mainWindow->show();
 
     return QApplication::exec();
