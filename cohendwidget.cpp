@@ -77,7 +77,7 @@ void CohendWidget::calc() {
         }
 
         if (inputCer.size() > 0 && cerOk){
-            if (cer < 0 || cer > 1){
+            if (cer <= 0 || cer >= 1){
                 qDebug() << "CER range must be between 0 and 1.";
                 showMessage("CER range must be between 0 and 1.");
                 displayError();
