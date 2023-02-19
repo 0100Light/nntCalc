@@ -7,7 +7,7 @@ int main(int argc, char* argv[]){
     return RUN_ALL_TESTS();
 }
 
-class CDFParamTest : public ::testing::TestWithParam<double> {
+class CDFTests : public ::testing::TestWithParam<double> {
 
 protected:
 /*
@@ -25,19 +25,19 @@ protected:
 };
 
 
-TEST_P(CDFParamTest, expect_near){
+TEST_P(CDFTests, expect_near){
     auto in = GetParam();
     EXPECT_NEAR(CalculateService::normalCDF(in), resMap[in], 0.0000001);
 }
 
 INSTANTIATE_TEST_SUITE_P(
         simple_values,
-        CDFParamTest,
+        CDFTests,
         ::testing::Values(0, 1, 1.1, 1.3, 1.5, 1.64, 3)
         );
 
 
-class KraemerMethodTests : public ::testing::TestWithParam<double> {
+class KraemerTests : public ::testing::TestWithParam<double> {
 protected:
     std::map<double, double> res = {
             {0.34, 5.3 },
@@ -46,12 +46,12 @@ protected:
     };
 };
 
-TEST_P(KraemerMethodTests, expect_near){
+TEST_P(KraemerTests, expect_near){
     EXPECT_NEAR(res[GetParam()], CalculateService::KraemerMethod(GetParam()), 0.1);
 }
 
 INSTANTIATE_TEST_SUITE_P(values_from_table_02,
-                         KraemerMethodTests,
+                         KraemerTests,
                          ::testing::Values(0.34, 0.17, 0.21)
                          );
 
