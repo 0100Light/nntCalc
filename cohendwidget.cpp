@@ -69,7 +69,7 @@ void CohendWidget::calc() {
             // use K method
             double nnt = calculateService.get()->KraemerMethod(d);
             showMessage("Info: incorrect or empty CER. Using K method");
-            setSelectedMethod("K");
+            setSelectedMethod("Kraemer");
             setResultNnt(nnt);
             return;
         }
@@ -84,7 +84,7 @@ void CohendWidget::calc() {
 
             // use F method
             double nnt = calculateService.get()->FurukawaMethod(d, cer);
-            setSelectedMethod("F");
+            setSelectedMethod("Furukawa");
             setResultNnt(nnt);
             showMessage("Ready");
             return;
