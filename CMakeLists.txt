@@ -27,7 +27,7 @@ target_link_libraries(nntLib
         Qt::Widgets
         )
 
-add_executable(NNTCalc
+add_executable(NNTCalc WIN32
         main.cpp
         resource.qrc
         calcmainwindow.cpp calcmainwindow.hpp calcmainwindow.ui
