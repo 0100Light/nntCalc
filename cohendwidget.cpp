@@ -61,6 +61,7 @@ void CohendWidget::calc() {
 
         if (!cohendOk){
             qDebug() << "cohend error";
+            showMessage("Error: incorrect cohend value");
             displayError();
             return;
         }
@@ -68,6 +69,7 @@ void CohendWidget::calc() {
         if (inputCer.size() == 0 || !cerOk){
             // use K method
             double nnt = calculateService.get()->KraemerMethod(d);
+            showMessage("Info: incorrect or empty CER. Using K method");
             setSelectedMethod("K");
             setResultNnt(nnt);
             return;
@@ -75,7 +77,8 @@ void CohendWidget::calc() {
 
         if (inputCer.size() > 0 && cerOk){
             if (cer < 0 || cer > 1){
-                qDebug() << "'CER' range must be between 0 and 1.";
+                qDebug() << "CER range must be between 0 and 1.";
+                showMessage("CER range must be between 0 and 1.");
                 displayError();
                 return;
             }

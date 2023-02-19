@@ -7,16 +7,20 @@
 #include "calcmainwindow.hpp"
 #include "ui_CalcMainWindow.h"
 #include "cohendwidget.hpp"
-
-
+#include <QObject>
 
 CalcMainWindow::CalcMainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::CalcMainWindow),
         cohendWidget(new CohendWidget(this))
-        {
+{
     ui->setupUi(this);
 
     setCentralWidget(cohendWidget);
+    statusBar()->showMessage("Ready");
+
+    connect(cohendWidget, &CohendWidget::showMessage, [=](const QString& msg){
+        statusBar()->showMessage(msg);
+    });
 }
 
 CalcMainWindow::~CalcMainWindow() {

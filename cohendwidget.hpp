@@ -44,6 +44,7 @@ private:
 signals:
     void methodChanged(QString);
     void nntChanged(double);
+    void showMessage(QString);
 };
 
 
