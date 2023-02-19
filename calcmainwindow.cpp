@@ -8,6 +8,7 @@
 #include "ui_CalcMainWindow.h"
 #include "cohendwidget.hpp"
 #include <QObject>
+#include "aboutdialog.h"
 
 CalcMainWindow::CalcMainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::CalcMainWindow),
@@ -18,8 +19,15 @@ CalcMainWindow::CalcMainWindow(QWidget *parent) :
     setCentralWidget(cohendWidget);
     statusBar()->showMessage("Ready");
 
+    /* connections */
+
     connect(cohendWidget, &CohendWidget::showMessage, [=](const QString& msg){
         statusBar()->showMessage(msg);
+    });
+    connect(ui->actionAbout, &QAction::triggered, [=](){
+        qDebug() << "actionAbout";
+        aboutDialog = new AboutDialog(this);
+        aboutDialog->exec();
     });
 }
 

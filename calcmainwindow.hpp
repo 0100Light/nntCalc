@@ -7,6 +7,7 @@
 
 #include <QMainWindow>
 #include "cohendwidget.hpp"
+#include "aboutdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CalcMainWindow; }
@@ -23,6 +24,7 @@ public:
 private:
     Ui::CalcMainWindow *ui;
     CohendWidget* cohendWidget;
+    AboutDialog* aboutDialog;
 };
 
 

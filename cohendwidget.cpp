@@ -1,6 +1,3 @@
-//
-// Created by user on 2023/2/17.
-//
 
 // You may need to build the project (run Qt uic code generator) to get "ui_CohendWidget.h" resolved
 
@@ -17,6 +14,7 @@ CohendWidget::CohendWidget(QWidget *parent) :
     ui->setupUi(this);
 
     /* connections */
+
     connect(this, &CohendWidget::methodChanged, ui->label_method, &QLabel::setText);
     connect(this, &CohendWidget::nntChanged, [=](double nnt){
         ui->label_nnt->setText(QString::number(nnt));
@@ -88,10 +86,12 @@ void CohendWidget::calc() {
             double nnt = calculateService.get()->FurukawaMethod(d, cer);
             setSelectedMethod("F");
             setResultNnt(nnt);
+            showMessage("Ready");
             return;
         }
     }
 
+    showMessage("Ready");
     displayError();
 
 }
