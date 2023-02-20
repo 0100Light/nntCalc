@@ -1,7 +1,3 @@
-//
-// Created by user on 2023/2/17.
-//
-
 #ifndef NNTCALC_COHENDWIDGET_HPP
 #define NNTCALC_COHENDWIDGET_HPP
 
